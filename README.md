@@ -1,10 +1,12 @@
 # mesos_config
 Cluster mesos configurado localmente para demonstração de uma arquitetura distribuida, esse projeto é um requisito para conclusão da disciplina CIN7929/Engenharia de dados do curso Ciência da Informação da Universidade Federal de Santa Catarina (UFSC), rodando um zookeeper, mesos-master, mesos_slave, mesos_slave-2, marathon and chronos.
 
+Os containers foram clonados do projeto da datastrophic e teve o arquivo docker-compose.yml adaptado para rodar dois mesos agentes
+
 # Mesos Docker Containers
 
 ## Running Mesos locally
-Esse setup é ideal para desenvolvimento e aprendizagem, existem limitações quando se trata de usar o Marathon para rodar containers Docker.
+Esse setup é ideal para desenvolvimento e aprendizagem, existem limitações quando se trata de usar o Marathon para rodar containers.
 
 ###docker-compose.yaml reference
 ```
@@ -81,7 +83,7 @@ services:
     ports:
       - "4400:4400"
 
-Esse arquivo de configuração deve ser colado no arquivo docker-compose-yml para rodar o cluster localmente
+Esse arquivo de configuração padrão deve ser colado no arquivo docker-compose-yml para rodar o cluster localmente
 ```
 ###Rodando o Mesos cluster
 Cluster com zookeeper, master, agents, marathon e chronos:
