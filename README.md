@@ -1,5 +1,5 @@
 # mesos_config
-Cluster mesos configurado localmente, gerenciado pelo mesos rodando um zookeeper, mesos-master, mesos_slave, mesos_slave-2, marathon and chronos.
+Cluster mesos configurado localmente para demonstração de uma arquitetura distribuida, esse projeto é um requisito para conclusão da disciplina CIN7929/Engenharia de dados do curso Ciência da Informação da Universidade Federal de Santa Catarina (UFSC), rodando um zookeeper, mesos-master, mesos_slave, mesos_slave-2, marathon and chronos.
 
 # Mesos Docker Containers
 
@@ -82,7 +82,7 @@ services:
       - "4400:4400"
 
 Esse arquivo de configuração deve ser colado no arquivo docker-compose-yml para rodar o cluster localmente
-
+```
 ###Rodando o Mesos cluster
 Cluster com zookeeper, master, agents, marathon e chronos:
 
