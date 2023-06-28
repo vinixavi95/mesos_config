@@ -94,7 +94,7 @@ Recomeçar e levantar o cluster:
       $ docker-compose -p mesos up -d --force-recreate
 
 
-Depois de digitar o comando as interfaces dicarão disponíveis em:
+Depois de digitar o comando as interfaces ficarão disponíveis em:
 
 * Mesos Master [http://localhost:5050](http://mesos-master:5050)
 * Marathon [http://localhost:8080](http://marathon:8080)
@@ -107,8 +107,25 @@ Parar o cluster e remover os containers:
       $ docker-compose -p mesos down && docker-compose -p mesos rm -f
             
 ###Usando multiplos agentes localmente
-É possível utilizar multiplos mesos agentes, para isso no documento `docker-compose.yml` você precisa duplicar o bloco de código do mesos agente, alterando e remapeando as portas para evitar conflitos. Você pode checar o arquivo [docker-compose-bare-mesos.yml](docker-compose-bare-mesos.yml) 
-para ter uma referência.
+
+É possível utilizar multiplos mesos agentes, para isso arquivo `docker-compose.yml` você precisa duplicar o bloco de código do mesos-slave (agente), alterando e remapeando as portas para evitar conflitos. Você pode checar o arquivo docker-compose-bare-mesos.yml para ter uma referência, porém basicamente cole o container abaixo no arquivo docker-compose.yml, fazendo as devidas alterações no nome do container, hostname e portas.
+
+ mesos-slave:
+    image: datastrophic/mesos-slave:1.1.0
+    hostname: "mesos-slave"
+    container_name: slave
+    privileged: true
+    environment:
+      - MESOS_HOSTNAME=mesos-slave
+      - MESOS_PORT=5151
+      - MESOS_MASTER=zk://zookeeper:2181/mesos
+    links:
+      - zookeeper
+      - mesos-master
+    ports:
+      - "5151:5151"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 ###Limitações do setup local
 No cluster Mesos de produção, a melhor prática é executar o Chronos via Marathon para fornecer garantias de alta disponibilidade.
