@@ -157,3 +157,10 @@ Isso pode ser feito postando a configuração apropriada do Marathon para o apli
 No entanto, esta configuração não funcionará localmente porque o Marathon não oferece suporte a tipos de rede personalizados e a nenhum outro tipo de rede
 O contêiner do Chronos NÃO conseguirá alcançar o tratador e vincular o Chronos ao endereço roteável.
 
+###Para melhor compreensão do funcionamento dos frameworks do ecossistema Mesos: Marathon e Chronos
+
+Tutorial para criação de novos containers com aplicações usando Marathon:
+https://www.techtarget.com/searchitoperations/tutorial/Use-this-Mesos-and-Marathon-tutorial-to-try-resource-abstraction
+
+Tutorial para agendamento dinâmico de tarefas usando Chronos:
+https://medium.com/@dipeshgtm/healthier-scheduling-with-chronos-b95773d6d536
