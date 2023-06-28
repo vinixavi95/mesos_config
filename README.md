@@ -85,9 +85,14 @@ Esse arquivo de configuração deve ser colado no arquivo docker-compose-yml par
 
 ###Rodando o Mesos cluster
 Cluster com zookeeper, master, agents, marathon e chronos:
-      
-      $ docker-compose -p mesos up 
-      
+
+Levantar o cluster:
+      $ sudo su
+      $ docker-compose -p mesos up
+
+Recomeçar e levantar o cluster:
+      $ docker-compose -p mesos up -d --force-recreate
+
 
 Depois de digitar o comando as interfaces dicarão disponíveis em:
 
@@ -95,9 +100,11 @@ Depois de digitar o comando as interfaces dicarão disponíveis em:
 * Marathon [http://localhost:8080](http://marathon:8080)
 * Chronos [http://localhost:4400](http://chronos:4400)
 
-Parar um cluster
-      
-      $ docker-compose -p mesos down 
+Parar o cluster: 
+      $ docker-compose -p mesos down
+
+Parar o cluster e remover os containers:
+      $ docker-compose -p mesos down && docker-compose -p mesos rm -f
             
 ###Usando multiplos agentes localmente
 É possível utilizar multiplos mesos agentes, para isso no documento `docker-compose.yml` você precisa duplicar o bloco de código do mesos agente, alterando e remapeando as portas para evitar conflitos. Você pode checar o arquivo [docker-compose-bare-mesos.yml](docker-compose-bare-mesos.yml) 
