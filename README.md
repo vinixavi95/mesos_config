@@ -131,7 +131,7 @@ Parar o cluster e remover os containers:
 
 ###Limitações do setup local
 No cluster Mesos de produção, a melhor prática é executar o Chronos via Marathon para fornecer garantias de alta disponibilidade.
-Isso pode ser feito postando a configuração apropriada do Marathon para o aplicativo Chronos:
+Isso pode ser feito passando a configuração apropriada do Marathon para o aplicativo Chronos:
   
       curl -XPOST 'http://marathon:8080/v2/apps' -H 'Content-Type: application/json' -d '{
         "id": "chronos",
@@ -156,8 +156,7 @@ Isso pode ser feito postando a configuração apropriada do Marathon para o apli
         "instances": 1
       }'
   
-No entanto, esta configuração não funcionará localmente porque o Marathon não oferece suporte a tipos de rede personalizados e a nenhum outro tipo de rede
-O contêiner do Chronos NÃO conseguirá alcançar o tratador e vincular o Chronos ao endereço roteável.
+No entanto, esta configuração não funcionará localmente porque o Marathon não oferece suporte a tipos de rede personalizadas
 
 ###Para melhor compreensão do funcionamento dos frameworks do ecossistema Mesos: Marathon e Chronos
 
